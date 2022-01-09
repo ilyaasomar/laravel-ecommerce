@@ -4,10 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\FrontendController;
+
 use Facade\FlareClient\Http\Response;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+// frontend routes
+Route::get('getCategory',[FrontendController::class,'category']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
