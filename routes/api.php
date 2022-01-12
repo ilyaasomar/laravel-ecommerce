@@ -6,7 +6,7 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\CartController;
-
+use App\Http\Controllers\API\CheckoutController;
 use Facade\FlareClient\Http\Response;
 
 Route::post('register', [AuthController::class, 'register']);
@@ -21,6 +21,8 @@ Route::get('cart',[CartController::class,'viewcart']);
 Route::put('cart-updatequantity/{cart_id}/{scope}',[CartController::class,'updatequantity']);
 Route::delete('deleteCartItem/{cart_id}',[CartController::class,'deleteCart']);
 
+// checkout routes
+Route::post('order-place',[CheckoutController::class,'orderPlace']);
 
 
 
